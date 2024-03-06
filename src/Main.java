@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         int eleccion;
-        boolean opcioninvalida=false;
-        Scanner in=new Scanner(System.in);
+        boolean opcioninvalida = false;
+        Scanner in = new Scanner(System.in);
+        Administrador admin=new Administrador("1111");
         //Menu
         do {
             opcioninvalida=false;
@@ -28,3 +29,4 @@ public class Main {
         System.out.println("Hasta la próxima");
     }
 }
+
