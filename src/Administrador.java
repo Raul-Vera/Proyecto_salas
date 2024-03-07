@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.ListIterator;
+import java.util.Iterator;
 
 public class Administrador {
    protected ArrayList salas=new ArrayList<>();
@@ -12,9 +12,7 @@ public class Administrador {
     }
 
 
-    public void añadirDepartamento(Departamento departamento){
-        ListIterator l1= new ; //seguiermañana
-    }
+
 
     //Listar departamentos
     public void listarDepartamentos(){
@@ -29,6 +27,20 @@ public class Administrador {
             }
         }
     }
+
+    //Añadir departamento
+    public boolean añadirDepartamento(String contraseña,String nombre){
+        if (this.encontrarContraseñaDep(contraseña)){
+            return false;
+        }
+        else {
+            Departamento aux=new Departamento(nombre,contraseña);
+            departamentos.add(aux);
+            return true;
+        }
+    }
+
+    //Listar Salas
     public void listarSalas(){
         if (salas.isEmpty()){
             System.out.println("No existe ningúna sala");
@@ -41,6 +53,8 @@ public class Administrador {
             }
         }
     }
+
+    //Listar todas las reservas
     public void listarTodasReservas(){
 
     }

@@ -18,6 +18,7 @@ public class Departamento {
         this.contraseña=contraseña;
 
     }
+
     /* añadir y quitar reserva al final se hace*/
 
     //Listar Reservas
@@ -32,10 +33,6 @@ public class Departamento {
             }
         }
     }
-   //queda por hacer
-    //public int cerrarSesion(){
-    //    return null;
-   // }
 
     //To string
     @Override
