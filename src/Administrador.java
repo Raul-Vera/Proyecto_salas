@@ -59,4 +59,40 @@ public class Administrador {
 
     }
 
+    public boolean encontrarContraseñaSal(String contraseña){
+        Iterator i1=salas.iterator();
+        boolean encontrado=false;
+        while (i1.hasNext() && !encontrado){
+            Sala aux=(Sala)i1.next();
+            if(contraseña.equals(aux.contraseña)){
+                encontrado=true;
+            }
+        }
+        return encontrado;
+    }
+    public boolean añadirSala(String contraseña,String nombre){
+        if (this.encontrarContraseñaSal(contraseña)){
+            return false;
+        }
+        else {
+            Sala aux=new Sala(nombre,contraseña);
+            salas.add(aux);
+            return true;
+        }
+    }
+
+
+    public boolean encontrarContraseñaDep(String contraseña){
+        Iterator i1=departamentos.iterator();
+        boolean encontrado=false;
+        while (i1.hasNext() && !encontrado){
+            Departamento aux=(Departamento)i1.next();
+            if(contraseña.equals(aux.contraseña)){
+                encontrado=true;
+            }
+        }
+        return encontrado;
+    }
+
+
 }
