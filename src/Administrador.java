@@ -54,7 +54,7 @@ public class Administrador {
         }
     }
 
-    //Listar todas las reservas
+    //Listar todas las reservas existencia
     public void listarTodasReservas(){
 
     }
