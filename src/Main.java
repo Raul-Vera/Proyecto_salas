@@ -60,12 +60,21 @@ public class Main {
                         nombredep=in.nextLine();
                         System.out.println("Introduce la contraseña del departamento");
                         contraseñadep=in.nextLine();
-                        if (admin.añadirDepartamento(contraseñadep,nombredep) ){
+                        if (admin.añadirDepartamento(contraseñadep,nombredep)){
                             System.out.println("El departamento  ha sido añadido con exito");
                     }else {
                             System.out.println("El departamento ya existía");
                         }
                 }else if(eleccionadmin==3){
+                        String contraseña;
+                        System.out.println("Introduce la clave del departamento");
+                        contraseña=in.nextLine();
+                        if (admin.eliminarDepartamento(contraseña)){
+                            System.out.println("Se elimino el departamento");
+                        }
+                        else {
+                            System.out.println("La clave no corresponde a ningun departamento");
+                        }
 
                     }
                     else  if ((eleccionadmin==4)){
@@ -85,9 +94,18 @@ public class Main {
                         }
                     }
                     else if (eleccionadmin==6){
+                        String contraseña;
+                        System.out.println("Introduce la clave de la sala");
+                        contraseña=in.nextLine();
+                        if (admin.eliminarSala(contraseña)){
+                            System.out.println("Se elimino la sala");
+                        }
+                        else {
+                            System.out.println("La clave no corresponde a ninguna sala");
+                        }
 
                         } else if (eleccionadmin==7) {
-                        admin.listarTodasReservas(); //por hacer---
+                        admin.listarTodasReservas();
 
                     }
                     else if (eleccionadmin==8) {

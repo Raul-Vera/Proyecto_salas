@@ -30,7 +30,7 @@ public class Administrador {
 
     //Añadir departamento
     public boolean añadirDepartamento(String contraseña,String nombre){
-        if (this.encontrarContraseñaDep(contraseña)){
+        if (this.encontrarContraseñaDep(contraseña)!=null){
             return false;
         }
         else {
@@ -56,22 +56,36 @@ public class Administrador {
 
     //Listar todas las reservas existencia
     public void listarTodasReservas(){
-
+        Departamento aux;
+        if (departamentos.isEmpty()){
+            System.out.println("No existe ningun departamento por lo que no existe ninguna reserva");
+        }
+        else {
+            for (Object departamento : departamentos) {
+                aux = (Departamento) departamento;
+                System.out.println("Departamento: " + aux.nombre);
+                aux.listarReservas();
+            }
+        }
     }
 
-    public boolean encontrarContraseñaSal(String contraseña){
+    //encuentra las contraseñas de salas
+    public Sala encontrarContraseñaSal(String contraseña){
         Iterator i1=salas.iterator();
         boolean encontrado=false;
+       Sala res=null;
         while (i1.hasNext() && !encontrado){
             Sala aux=(Sala)i1.next();
             if(contraseña.equals(aux.contraseña)){
                 encontrado=true;
+                res=aux;
             }
         }
-        return encontrado;
+        return res;
     }
+    //añade salas al Array list
     public boolean añadirSala(String contraseña,String nombre){
-        if (this.encontrarContraseñaSal(contraseña)){
+        if (this.encontrarContraseñaSal(contraseña)!=null){
             return false;
         }
         else {
@@ -81,18 +95,41 @@ public class Administrador {
         }
     }
 
-
-    public boolean encontrarContraseñaDep(String contraseña){
+// Encontrar la contraseña de los departamentos en el array
+    public Departamento encontrarContraseñaDep(String contraseña){
         Iterator i1=departamentos.iterator();
         boolean encontrado=false;
+        Departamento resp= null;
         while (i1.hasNext() && !encontrado){
             Departamento aux=(Departamento)i1.next();
             if(contraseña.equals(aux.contraseña)){
                 encontrado=true;
+                resp=aux;
             }
         }
-        return encontrado;
+        return resp;
     }
-
+    public boolean eliminarDepartamento(String contraseña){
+        Departamento res;
+        if(this.encontrarContraseñaDep(contraseña)==null){
+            return false;
+        }
+        else {
+            res=this.encontrarContraseñaDep(contraseña);
+            departamentos.remove(res);
+            return true;
+        }
+    }
+    public boolean eliminarSala(String contraseña){
+        Sala res;
+        if(this.encontrarContraseñaSal(contraseña)==null){
+            return false;
+        }
+        else {
+            res=this.encontrarContraseñaSal(contraseña);
+            salas.remove(res);
+            return true;
+        }
+    }
 
 }
