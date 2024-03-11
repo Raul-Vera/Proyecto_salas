@@ -30,6 +30,7 @@ public class Administrador {
 
     //Añadir departamento
     public boolean añadirDepartamento(String contraseña,String nombre){
+        /*Encuentra la contraseña no lo añade y devuelve false,al contrario loa añade y devuelve true*/
         if (this.encontrarContraseñaDep(contraseña)!=null){
             return false;
         }
@@ -71,6 +72,7 @@ public class Administrador {
 
     //encuentra las contraseñas de salas
     public Sala encontrarContraseñaSal(String contraseña){
+        /*Si encuentra la clave ya en el arraylist , entonces devuelve la sala que tiene esa clave, si no devuelve null*/
         Iterator i1=salas.iterator();
         boolean encontrado=false;
        Sala res=null;
@@ -85,6 +87,7 @@ public class Administrador {
     }
     //añade salas al Array list
     public boolean añadirSala(String contraseña,String nombre){
+        /*Si encuentra la contraseña de la sala y devuelve false, si no la añade y devuelve true*/
         if (this.encontrarContraseñaSal(contraseña)!=null){
             return false;
         }
@@ -97,6 +100,7 @@ public class Administrador {
 
 // Encontrar la contraseña de los departamentos en el array
     public Departamento encontrarContraseñaDep(String contraseña){
+        /*Si encuentra la contraseña del dep y devuelve false, si no la añade y devuelve true*/
         Iterator i1=departamentos.iterator();
         boolean encontrado=false;
         Departamento resp= null;
@@ -110,6 +114,7 @@ public class Administrador {
         return resp;
     }
     public boolean eliminarDepartamento(String contraseña){
+        /*Si encuentra la contraseña elimina el dep si no no*/
         Departamento res;
         if(this.encontrarContraseñaDep(contraseña)==null){
             return false;
@@ -121,6 +126,7 @@ public class Administrador {
         }
     }
     public boolean eliminarSala(String contraseña){
+        /*Si encuentra la contraseña elimina la sal si no no*/
         Sala res;
         if(this.encontrarContraseñaSal(contraseña)==null){
             return false;

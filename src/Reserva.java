@@ -12,6 +12,9 @@ public class Reserva {
     //metodos
 
     //constructor
+    protected Reserva(){
+
+    }
     protected Reserva(LocalDateTime horainicio, LocalDateTime horafin, String sala) {
         this.horainicio = horainicio;
         this.horafin = horafin;
