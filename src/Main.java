@@ -4,8 +4,9 @@ public class Main {
     public static void main(String[] args) {
         int eleccion;
         int eleccionadmin;
+        String contraseñadepartamento;
        String contraseñadmin;
-
+       Departamento opertativo;
         boolean opcioninvalida = false;
         Scanner in = new Scanner(System.in);
         Administrador admin=new Administrador("1111");
@@ -116,6 +117,17 @@ public class Main {
 
 
                 }
+            if (eleccion==2){
+
+                System.out.println();
+                System.out.println("Introduce la contraseña del departamento");
+                contraseñadepartamento=in.nextLine();
+                while (admin.encontrarContraseñaDep(contraseñadepartamento) != null) {
+                    opertativo=admin.encontrarContraseñaDep(contraseñadepartamento);
+                    System.out.println("---MENU"+opertativo.nombre+"---");
+                }
+            }
+
 
     }while (eleccion==1 || eleccion==2||opcioninvalida);
         System.out.println("Hasta la próxima");
