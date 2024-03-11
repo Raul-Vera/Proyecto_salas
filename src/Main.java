@@ -126,7 +126,7 @@ public class Main {
                     System.out.println();
                     System.out.println("Introduce la clave del departamento");
                     contraseñadepartamento = in.nextLine();
-                    while (admin.encontrarContraseñaDep(contraseñadepartamento) == null && !contraseñadepartamento.equals("3")) {
+                    while (admin.encontrarContraseñaDep(contraseñadepartamento) == null && !contraseñadepartamento.equals("4")) {
                         System.out.println("La contraseña no es valida"); //Mensaje de contraseña erronea
                         System.out.println("vuelve a intentarlo o pulse 3 para salir");
                         contraseñadepartamento = in.nextLine();
@@ -137,6 +137,7 @@ public class Main {
                         System.out.println("---MENU del departamento de " + opertativo.nombre + "---");
                         System.out.println("1) Añadir Reserva");
                         System.out.println("2) Eliminar Reservas");
+                        System.out.println("3) Listar reservas");
                         System.out.println("3) Cerrar sesion");
                         System.out.println();
                         System.out.println("Elige la opcion que desees");
@@ -203,8 +204,11 @@ public class Main {
                                 System.out.println(" No existe ninguna sala con esa clave");
                             }
                         }
+                        if (eleccciondep==3){
+                            admin.listarTodasReservas();
+                        }
 
-                        if ((eleccciondep == 3)) { //cierras sesion
+                        if ((eleccciondep == 4)) { //cierras sesion
                             cerrarsesion = true;
                         }
                     }
